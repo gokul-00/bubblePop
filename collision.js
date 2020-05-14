@@ -156,9 +156,10 @@ var item = 0;
 function init() {
     
     particles = [];
-    let radius = randomIntFromRange(25,35);
+    
 
     for (let i = 0; i < 5; i++) {
+        let radius = randomIntFromRange(25,35);
         let x = randomIntFromRange(radius, canvas.width - radius);
         let y = randomIntFromRange(radius, canvas.height - radius);
 
