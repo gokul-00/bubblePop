@@ -156,7 +156,7 @@ var item = 0;
 function init() {
     
     particles = [];
-    let radius = 35;
+    let radius = randomIntFromRange(25,35);
 
     for (let i = 0; i < 5; i++) {
         let x = randomIntFromRange(radius, canvas.width - radius);
@@ -215,7 +215,7 @@ interval = setInterval(function interval(){
                 }
             }
         }
-    if(ratio <= 0.40){
+    if(ratio <= 0.50){
         item = particles.length;
         particles.push(new Particle(x, y, radius, item));
       
