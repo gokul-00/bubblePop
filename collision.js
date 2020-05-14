@@ -95,8 +95,8 @@ function Particle(x, y, radius, item) {
         for (let i = 0; i < particles.length; i++) {
             const otherParticle = particles[i];
             if (this.x === otherParticle.x) continue;
-
-            if (distance(this.x, this.y, otherParticle.x, otherParticle.y) - this.radius * 2 < 0) {
+          var centerDist = this.radius+otherParticle.radius;
+            if (distance(this.x, this.y, otherParticle.x, otherParticle.y) - centerDist < 0) {
 
                 const res = {
                     x: this.velocity.x - otherParticle.velocity.x,
@@ -164,7 +164,8 @@ function init() {
 
         if (particles.length >= 1) {
             for (let j = 0; j < particles.length; j++) {
-                if (distance(x, y, particles[j].x, particles[j].y) - radius * 2 < 0) {
+                var centerDist = radius+particles[j].radius;
+                if (distance(x, y, particles[j].x, particles[j].y) - centerDist < 0) {
                     x = randomIntFromRange(radius, canvas.width - radius);
                     y = randomIntFromRange(radius, canvas.height - radius);
 
@@ -174,7 +175,7 @@ function init() {
                 }
             }
         }
-        
+        circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
         item++;
     }
@@ -192,12 +193,12 @@ function animate() {
         particle.update(particles);
     });
 }
- var circleArea = Math.PI*35*35;
+ var circleArea = 0;
  var canvasArea = canvas.width*canvas.height;
  
 //interval for appearance of bubbles
 interval = setInterval(function interval(){
-    var ratio = circleArea/canvasArea * particles.length;
+    var ratio = circleArea/canvasArea;
     let radius = randomIntFromRange(25,35);
     
         let x = randomIntFromRange(radius, canvas.width - radius);
@@ -205,7 +206,8 @@ interval = setInterval(function interval(){
 
         if (particles.length >= 1) {
             for (let j = 0; j < particles.length; j++) {
-                if (distance(x, y, particles[j].x, particles[j].y) - radius * 2 < 0) {
+                var centerDist = radius+particles[j].radius;
+                if (distance(x, y, particles[j].x, particles[j].y) - centerDist < 0) {
                     x = randomIntFromRange(radius, canvas.width - radius);
                     y = randomIntFromRange(radius, canvas.height - radius);
 
@@ -217,6 +219,7 @@ interval = setInterval(function interval(){
         }
     if(ratio <= 0.50){
         item = particles.length;
+        circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
       
     }
