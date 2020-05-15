@@ -11,7 +11,7 @@ const mouse = {
     x: 0,
     y: 0
 };
-var mySound = new sound("bubble.mp3");
+
 
 
  // Event Listeners
@@ -248,6 +248,12 @@ interval = setInterval(function interval(){
     }
   
 },1000);
-
+var mySound ;
+var myBgm;
+function startGame(){
 init();
-animate();
+animate(); 
+mySound = new sound("bubble.mp3");
+myBgm = new sound("bgm.mp3");
+myBgm.play();
+}

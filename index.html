@@ -32,23 +32,7 @@
 </head>
 <body>
     <a href="collision.html"><span class="material-icons" id="play">play_circle_filled</span></a>
-    <span class="material-icons" id="sound" onclick="myBgm.play()">volume_up</span>
-    <script>
-var myBgm = new sound("bgm.mp3");
-    function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-      this.sound.play();
-    }
-    this.stop = function(){
-      this.sound.pause();
-    }
-}
-    </script> 
+    
+    
 </body>
 </html>
