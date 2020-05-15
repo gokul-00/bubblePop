@@ -25,6 +25,7 @@ addEventListener('click',event =>{
            var item = particle.item ;
            particles.splice(item,1);
            mySound.play();
+           circleArea-=Math.PI*particle.radius*particle.radius;
            sorting(item);
            score+=1;
         }
@@ -57,6 +58,7 @@ function sound(src) {
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
+    
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
@@ -247,7 +249,7 @@ interval = setInterval(function interval(){
     
     else{
         localStorage.setItem("score",score);
-        window.open(gameover.html);
+        window.open("gameover.html");
         cancelAnimationFrame(id);
         mySound.stop();
         
@@ -261,5 +263,6 @@ init();
 animate(); 
 mySound = new sound("bubble.mp3");
 myBgm = new sound("bgm.mp3");
+myBgm.sound.setAttribute("loop","infinite");
 myBgm.play();
 }
