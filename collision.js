@@ -11,6 +11,7 @@ const mouse = {
     x: 0,
     y: 0
 };
+var mySound = new sound("bubble.mp3");
 
 
  // Event Listeners
@@ -23,6 +24,7 @@ addEventListener('click',event =>{
         if(distance(mouse.x,mouse.y,particle.x,particle.y) - particle.radius < 0){
            var item = particle.item ;
            particles.splice(item,1);
+           mySound.play();
            sorting(item);
         }
    }   
@@ -47,6 +49,20 @@ function randomIntFromRange(min, max) {
 function sorting(n){
     for(var i = n;i< particles.length;i++){
         particles[i].item--;
+    }
+}
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
     }
 }
 function getRandomColor() {
@@ -228,7 +244,7 @@ interval = setInterval(function interval(){
     else{
         
         cancelAnimationFrame(id);
-        
+        mySound.stop();
     }
   
 },1000);
