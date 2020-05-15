@@ -249,6 +249,7 @@ interval = setInterval(function interval(){
     
     else{
         localStorage.setItem("score",score);
+        clearInterval(interval);
         window.open("gameover.html");
         cancelAnimationFrame(id);
         mySound.stop();
