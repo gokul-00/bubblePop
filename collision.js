@@ -204,7 +204,7 @@ function init() {
 
 // Animation Loop
 var id;
-var time =1000;
+var time =500;
 function animate() {
     id = requestAnimationFrame(animate); 
     
@@ -242,14 +242,12 @@ interval = setInterval(function interval(){
         item = particles.length;
         circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
-       if(time>100){
-           time-=20;
-       }
+       
     }
     
     else{
         localStorage.setItem("score",score);
-        clearInterval(interval);
+        stopinterval();
         window.open("gameover.html");
         cancelAnimationFrame(id);
         mySound.stop();
@@ -257,6 +255,9 @@ interval = setInterval(function interval(){
     }
   
 },time);
+function stopinterval(){
+    clearInterval(interval);
+}
 var mySound ;
 var myBgm;
 function startGame(){
