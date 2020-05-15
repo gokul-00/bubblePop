@@ -4,7 +4,7 @@ const c = canvas.getContext('2d');
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
- 
+var score = 0; 
 
 // Variables
 const mouse = {
@@ -26,6 +26,7 @@ addEventListener('click',event =>{
            particles.splice(item,1);
            mySound.play();
            sorting(item);
+           score+=1;
         }
    }   
    );
@@ -201,6 +202,7 @@ function init() {
 
 // Animation Loop
 var id;
+var time =1000;
 function animate() {
     id = requestAnimationFrame(animate); 
     
@@ -234,20 +236,24 @@ interval = setInterval(function interval(){
                 }
             }
         }
-    if(ratio <= 0.50){
+    if(ratio <= 0.40){
         item = particles.length;
         circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
-      
+       if(time>100){
+           time-=20;
+       }
     }
     
     else{
         
         cancelAnimationFrame(id);
+        localStorage.setItem("score",score);
         mySound.stop();
+        window.open(gameover.html);
     }
   
-},1000);
+},time);
 var mySound ;
 var myBgm;
 function startGame(){
