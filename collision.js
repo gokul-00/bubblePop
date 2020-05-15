@@ -246,11 +246,11 @@ interval = setInterval(function interval(){
     }
     
     else{
-        
-        cancelAnimationFrame(id);
         localStorage.setItem("score",score);
-        mySound.stop();
         window.open(gameover.html);
+        cancelAnimationFrame(id);
+        mySound.stop();
+        
     }
   
 },time);
