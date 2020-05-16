@@ -204,7 +204,7 @@ function init() {
 
 // Animation Loop
 var id;
-var time =500;
+var time =400;
 function animate() {
     id = requestAnimationFrame(animate); 
     
@@ -243,7 +243,7 @@ interval = setInterval(function() {
         item = particles.length;
         circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
-       
+        timededuce();
     }
     
     else{
@@ -259,6 +259,11 @@ interval = setInterval(function() {
 }
 function stopinterval(){
     clearInterval(interval);
+}
+function timededuce(){
+    if(time<100){
+        time-=20;
+    }
 }
 var mySound ;
 var myBgm;
