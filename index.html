@@ -33,6 +33,22 @@
         width: 50vw;
         height: 10vh;
     }
+    #instruction{
+            
+            border: 2px ridge black;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.614);
+            position: absolute;
+            bottom: 0;
+            font-weight: 400;
+            left: 20%;
+            
+            
+        }
+        p {
+            line-height: 0.8;
+            font-weight: 500;
+        }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"> 
@@ -40,6 +56,13 @@
 <body>
     <a href="collision.html"><span class="material-icons" id="play">play_circle_filled</span></a>
     <img src="header.png" alt="bubblepop">
+    
+    <div id="instruction">
+        <b>INSTRUCTION:</b>
+        <p>->click on the bubble to make it disappear.</p>
+        <p>->you can stop the game whenever in the middle of the game and resume afterwards.</p>
+        <p>->scores will be displayed on the top of the screen and also at end of the game.</p>
+    </div>
     
 </body>
 </html>
