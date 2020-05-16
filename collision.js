@@ -3,7 +3,7 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
 canvas.width = innerWidth;
-canvas.height = innerHeight*0.90;
+canvas.height = innerHeight;
 var score = 0; 
 
 // Variables
@@ -37,7 +37,7 @@ addEventListener('click',event =>{
 
 addEventListener('resize', () => {
     canvas.width = innerWidth;
-    canvas.height = innerHeight*0.90;
+    canvas.height = innerHeight;
 
     init();
 });
