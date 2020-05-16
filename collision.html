@@ -15,13 +15,19 @@
             background-size:     cover;                      
             background-repeat:   no-repeat;
             background-position: center center;
-            
+            position: absolute;
+            margin-top: 30px;
         }
         
     </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 </head>
 <body onload="startGame()">
-              
+    <span class="material-icons" onclick="pause()">pause_circle_filled</span> 
+    <span class="material-icons" onclick="resume()">play_circle_filled</span>   
+    <span class="material-icons" onclick="restart()">replay</span>
+    
     <canvas></canvas>
  <script src="collision.js">  </script>
 </body>

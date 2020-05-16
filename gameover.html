@@ -14,11 +14,29 @@
             background-repeat:  no-repeat;
             background-position: center center;
            }
-        
+           span{
+               font-size: large;
+               font-weight: 500;
+           }
+           button{
+               position: absolute;
+               top: 50%;
+               left: 48%;
+               color: cornsilk;
+               background-color: black;
+           }
+           button:hover{
+               transition: scale(1.2);
+
+           }
     </style>
 </head>
 <body>
-    <p>score:</p><span id="score"></span>
+    <div>
+    <span>score:</span><span id="score"></span>
+    </div>
+    <a href="index.html">
+    <button type="button">play again</button></a>
     <script>
         document.getElementById("score").innerHTML = localStorage.getItem("score");
     </script>

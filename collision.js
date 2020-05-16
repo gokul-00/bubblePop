@@ -3,7 +3,7 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
 canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.height = innerHeight-30;
 var score = 0; 
 
 // Variables
@@ -37,7 +37,7 @@ addEventListener('click',event =>{
 
 addEventListener('resize', () => {
     canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    canvas.height = innerHeight-30;
 
     init();
 });
@@ -218,7 +218,8 @@ function animate() {
  var canvasArea = canvas.width*canvas.height;
  
 //interval for appearance of bubbles
-interval = setInterval(function interval(){
+function startInterval(){
+interval = setInterval(function {
     var ratio = circleArea/canvasArea;
     let radius = randomIntFromRange(25,35);
     
@@ -255,16 +256,40 @@ interval = setInterval(function interval(){
     }
   
 },time);
+}
 function stopinterval(){
     clearInterval(interval);
 }
 var mySound ;
 var myBgm;
+//start of the game
 function startGame(){
 init();
-animate(); 
+animate();
+startInterval(); 
 mySound = new sound("bubble.mp3");
 myBgm = new sound("bgm.mp3");
 myBgm.sound.setAttribute("loop","infinite");
 myBgm.play();
+}
+
+//additional button functions
+function pause(){
+    stopinterval();
+    cancelAnimationFrame(id);
+    c.clearRect(0, 0, canvas.width, canvas.height);  
+}
+
+function resume(){
+    animate();
+    startInterval();
+}
+
+function restart(){
+    stopinterval();
+    cancelAnimationFrame(id);
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    init();
+    animate();
+    startInterval(); 
 }
