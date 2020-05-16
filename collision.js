@@ -219,7 +219,7 @@ function animate() {
  
 //interval for appearance of bubbles
 function startInterval(){
-interval = setInterval(function {
+interval = setInterval(function() {
     var ratio = circleArea/canvasArea;
     let radius = randomIntFromRange(25,35);
     
