@@ -239,7 +239,7 @@ interval = setInterval(function() {
                 }
             }
         }
-    if(ratio <= 0.35){
+    if(ratio <= 0.25){
         item = particles.length;
         circleArea+=Math.PI*radius*radius;
         particles.push(new Particle(x, y, radius, item));
