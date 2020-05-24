@@ -13,23 +13,24 @@
             background-repeat:  no-repeat;
             background-position: center center;
         }
+        .container{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
         
         #play{
-           position: absolute;
-           font-size: 60px;
-           top: 50%;
-           left: 50%;
+           
            color: rgb(11, 35, 80);
-       }
-       #sound{
-           position: absolute;
-           left: 90%;
            font-size: 60px;
-    }
+       }
+       
     img{
-        position: absolute;
-        top: 10%;
-        left: 30%;
         width: 50vw;
         height: 10vh;
     }
@@ -37,11 +38,8 @@
             
             border: 2px ridge black;
             padding: 5px;
-            background-color: rgba(255, 255, 255, 0.614);
-            position: absolute;
-            bottom: 0;
-            font-weight: 400;
-            left: 20%;
+            background-color: rgba(255, 255, 255, 0.614);font-weight: 400;
+            
             
             
         }
@@ -54,15 +52,15 @@
     rel="stylesheet"> 
 </head>
 <body>
-    <a href="collision.html"><span class="material-icons" id="play">play_circle_filled</span></a>
+<div class="container">
     <img src="header.png" alt="bubblepop">
-    
+    <a href="collision.html"><span class="material-icons" id="play">play_circle_filled</span></a>
     <div id="instruction">
         <b>INSTRUCTION:</b>
         <p>->click on the bubble to make it disappear.</p>
         <p>->you can stop the game whenever in the middle of the game and resume afterwards.</p>
         <p>->scores will be displayed on the top of the screen and also at end of the game.</p>
     </div>
-    
+</div>
 </body>
 </html>
